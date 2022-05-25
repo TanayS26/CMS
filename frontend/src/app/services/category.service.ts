@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -13,13 +13,13 @@ export class CategoryService {
 
   add(data: any) {
     return this.httpClient.post(this.url + '/category/add/', data, {
-      headers: {'Content-Type': 'application/json'}
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 
   update(data: any) {
     return this.httpClient.patch(this.url + '/category/update/', data, {
-      headers: {'Content-Type': 'application/json'}
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 

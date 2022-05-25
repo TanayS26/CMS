@@ -2,7 +2,6 @@ require ('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 function authToken(req, res, next) {
-    console.log('Fuction started=====>')
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) 
@@ -15,7 +14,6 @@ function authToken(req, res, next) {
         // req.user = user;
         next();
     })
-    console.log('Execution completed---->');
 }
 
 module.exports = { authToken: authToken }

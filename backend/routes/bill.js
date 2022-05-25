@@ -13,6 +13,8 @@ router.post('/generateReport', auth.authToken, (req, res) => {
     const generatedUuid =  uuid.v1();
     const orderDetails = req.body;
     var productDetailsReport = JSON.parse(orderDetails.productDetails);
+ 
+    console.log(orderDetails);
 
     // productDetailsReport.forEach(product => {
     //     product.total = product.quantity * product.price;
@@ -23,10 +25,11 @@ router.post('/generateReport', auth.authToken, (req, res) => {
     var query = "insert into bill (name, uuid, email, contactNumber, paymentMethod, amount, productDetails, createdBy) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
     // console.log(orderDetails)
+    console.log("Total Amount : " + orderDetails.totalAmount);
 
-    connection.query(query, [orderDetails.name, generatedUuid, orderDetails.email, orderDetails.contactNumber, orderDetails.paymentMethod, orderDetails.amount, orderDetails.productDetails, res.locals.email], (err, result) => {
+    connection.query(query, [orderDetails.name, generatedUuid, orderDetails.email, orderDetails.contactNumber, orderDetails.paymentMethod, orderDetails.totalAmount, orderDetails.productDetails, res.locals.email], (err, result) => {
         if (!err) {
-            ejs.renderFile(path.join(__dirname, '', "report.ejs"), { productDetails: productDetailsReport, name: orderDetails.name, email: orderDetails.email, contactNumber: orderDetails.contactNumber, paymentMethod: orderDetails.paymentMethod, totalAmount: orderDetails.amount}, (err, results) => {
+            ejs.renderFile(path.join(__dirname, '', "report.ejs"), { productDetails: productDetailsReport, name: orderDetails.name, email: orderDetails.email, contactNumber: orderDetails.contactNumber, paymentMethod: orderDetails.paymentMethod, totalAmount: orderDetails.totalAmount}, (err, results) => {
                 if(err) {
                     return res.status(500).json(err);
                 } else {
