@@ -96,6 +96,8 @@ export class ProductComponent implements OnInit {
       price: formData.price,
       description: formData.description
     }
+    console.log('--->', data);
+    
     this.productService.update(data).subscribe((response: any) => {
       this.dialogRef.close();
       this.onEditProduct.emit();

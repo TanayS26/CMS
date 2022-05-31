@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   update(data: any) {
-    return this.httpClient.post(this.url + '/product/update/', data, {
+    return this.httpClient.patch(this.url + '/product/update/', data, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }

@@ -47,7 +47,11 @@
   
               <mat-form-field appearance="fill" fxFlex>
                   <mat-label>Pasword</mat-label>
-                  <input matInput formControlName="password" type="password" required>
+                  <input matInput formControlName="password" [type]="show ? 'text' : 'password'" required>
+                  <button mat-icon-button color="primary" (click)="toggleShow()">
+                    <mat-icon>remove_red_eye</mat-icon>
+                    <!-- {{show ? 'Show' : 'Hide'}} -->
+                </button>
                   <mat-error *ngIf="signupForm.get('password').hasError('required')">
                       Password is Required
                   </mat-error>
@@ -55,6 +59,12 @@
                       <span *ngIf="signupForm.controls.password.error.required">Password is Mandatory!</span>
                       <span *ngIf="signupForm.controls.password.error.pattern">Invalid Format!</span>
                   </mat-error> -->
+                  
+                    <!-- <button mat-icon-button color="primary" (click)="toggleShow()">
+                        <mat-icon>remove_red_eye</mat-icon> -->
+                        <!-- {{show ? 'Show' : 'Hide'}} -->
+                    <!-- </button> -->
+            
               </mat-form-field> 
           </div>
       </form>

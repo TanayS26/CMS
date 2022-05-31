@@ -14,6 +14,8 @@ import { GlobalConstants } from '../shared/global-constant';
 })
 export class SignupComponent implements OnInit {
 
+  password: any;
+  show: boolean = false;
   signupForm: any = FormGroup;
   responseMessage: any;
 
@@ -57,6 +59,17 @@ export class SignupComponent implements OnInit {
       }
       this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
     })
+  }
+
+  toggleShow() {
+    console.log('Eye clicked');
+    if (this.password === 'password') {
+      this.password = 'text';
+      this.show = true;
+    } else {
+      this.password = 'password';
+      this.show = false;
+    }
   }
 
 }

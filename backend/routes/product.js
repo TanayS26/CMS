@@ -64,7 +64,7 @@ router.get('/getById/:id', auth.authToken, (req, res, next) => {
 router.patch('/update', auth.authToken, (req, res, next) => {
     let product = req.body;
     var query = "update product set name = ?, categoryId = ?, description = ?, price = ? where id = ?";
-    connecttion.query(query, [product.name, product.categoryId, product.description, product.price, product.id], (err, results) => {
+    connection.query(query, [product.name, product.categoryId, product.description, product.price, product.id], (err, results) => {
         if (!err) {
             if (results.affectedRows == 0) {
                 return res.status(404).json({

@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', response.token);
       this.router.navigate(['/cafe/dashboard']);
       this.responseMessage = response?.message;
+      console.log(this.responseMessage)
       this.snackbarService.openSnackBar(this.responseMessage, '');
       // this.router.navigate(['/']);
     }, (error) => {

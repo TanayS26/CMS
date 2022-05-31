@@ -10,6 +10,7 @@ export class BestSellerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Inside best seller component')
   }
 
 }

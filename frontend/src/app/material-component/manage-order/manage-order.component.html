@@ -9,7 +9,7 @@
     <form [formGroup]="manageOrderForm">
         <div fxFlex fxLayout="column">
             <div fxLayout="row wrap">
-                <mat-from-field appearance="fill" fxFlex>
+                <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Name</mat-label>
                     <input matInput formControlName="name" required>
                     <!-- <mat-error *ngIf="manageOrderForm.get('name').hasError('required')">
@@ -19,9 +19,9 @@
                         <span *ngIf="manageOrderForm.controls.name.errors.required">This field is required</span>
                         <span *ngIf="manageOrderForm.controls.name.errors.pattern">This field is invalid</span>
                     </mat-error>
-                </mat-from-field>
+                </mat-form-field>
 
-                <mat-from-field appearance="fill" fxFlex>
+                <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" required>
                     <!-- <mat-error *ngIf="manageOrderForm.get('email').hasError('required')">
@@ -31,9 +31,9 @@
                         <span *ngIf="manageOrderForm.controls.email.errors.required">This field is required</span>
                         <span *ngIf="manageOrderForm.controls.email.errors.pattern">This field is invalid</span>
                     </mat-error>
-                </mat-from-field>
+                </mat-form-field>
 
-                <mat-from-field appearance="fill" fxFlex>
+                <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Contact Number</mat-label>
                     <input matInput formControlName="contactNumber" required>
                     <!-- <mat-error *ngIf="manageOrderForm.get('contactNumber').hasError('required')">
@@ -43,9 +43,9 @@
                         <span *ngIf="manageOrderForm.controls.contactNumber.errors.required">This field is required</span>
                         <span *ngIf="manageOrderForm.controls.contactNumber.errors.pattern">This field is invalid</span>
                     </mat-error>
-                </mat-from-field>
+                </mat-form-field>
 
-                <mat-from-field appearance="fill" fxFlex>
+                <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Payment Method</mat-label>
                     <mat-select matInput formControlName="paymentMethod" required>
                         <mat-option value="Cash">Cash</mat-option>
@@ -55,7 +55,7 @@
                     <!-- <mat-error *ngIf="manageOrderForm.get('paymentMethod').hasError('required')">
                         Payment Method is required
                     </mat-error> -->
-                </mat-from-field>
+                </mat-form-field>
             </div>
         </div>
     </form>

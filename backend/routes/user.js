@@ -58,7 +58,8 @@ router.post('/login', (req, res) => {
                 const response = { email: results[0].email, role: results[0].role }
                 const accessToken = jwt.sign(response, process.env.ACCESS_TOKEN, { expiresIn: '1h' });
                 res.status(200).json({
-                    token: accessToken
+                    token: accessToken,
+                    message: "Login Successfull."
                 })
             } else {
                 return res.status(400).json({
